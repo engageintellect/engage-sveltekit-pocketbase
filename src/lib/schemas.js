@@ -70,7 +70,7 @@ export const createProjectSchema = z.object({
 	description: z
 		.string({ required_error: 'Description is required' })
 		.min(1, { message: 'Description is required' })
-		.max(4096, { message: 'Description must be less than 512 characters' })
+		.max(4096, { message: 'Description must be less than 4096 characters' })
 		.trim(),
 	thumbnail: z
 		.instanceof(Blob)
