@@ -1,4 +1,5 @@
-import { error, invalid, redirect } from '@sveltejs/kit';
+/* eslint-disable no-unused-vars */
+import { error, fail, redirect } from '@sveltejs/kit';
 import { serializeNonPOJOs, validateData } from '$lib/utils';
 import { updateProjectSchema } from '$lib/schemas';
 import { serialize } from 'object-to-formdata';
@@ -40,7 +41,7 @@ export const actions = {
 		const { thumbnail, ...rest } = formData;
 
 		if (errors) {
-			return invalid(400, {
+			return fail(400, {
 				data: rest,
 				errors: errors.fieldErrors
 			});

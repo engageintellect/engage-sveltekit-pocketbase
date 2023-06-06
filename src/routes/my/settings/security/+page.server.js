@@ -1,4 +1,5 @@
-import { error, invalid, redirect } from '@sveltejs/kit';
+/* eslint-disable no-undef */
+import { error, fail, redirect } from '@sveltejs/kit';
 import { updatePasswordSchema } from '$lib/schemas';
 import { validateData } from '$lib/utils';
 
@@ -13,7 +14,7 @@ export const actions = {
 		const { formData, errors } = await validateData(await request.formData(), updatePasswordSchema);
 
 		if (errors) {
-			return invalid(400, {
+			return fail(400, {
 				errors: errors.fieldErrors
 			});
 		}

@@ -12,7 +12,7 @@
 				case 'success':
 					await update();
 					break;
-				case 'invalid':
+				case 'fail':
 					toast.error('Invalid credentials');
 					await update();
 					break;

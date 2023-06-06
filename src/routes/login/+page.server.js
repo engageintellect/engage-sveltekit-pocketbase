@@ -1,4 +1,4 @@
-import { error, redirect } from '@sveltejs/kit';
+import { error, fail, redirect } from '@sveltejs/kit';
 import { validateData } from '$lib/utils';
 import { loginUserSchema } from '$lib/schemas';
 
@@ -7,13 +7,10 @@ export const actions = {
 		const { formData, errors } = await validateData(await request.formData(), loginUserSchema);
 
 		if (errors) {
-			return (
-				400,
-				{
-					data: formData,
-					errors: errors.fieldErrors
-				}
-			);
+			return fail(400, {
+				data: formData,
+				errors: errors.fieldErrors
+			});
 		}
 
 		try {

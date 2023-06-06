@@ -1,4 +1,4 @@
-import { error, invalid } from '@sveltejs/kit';
+import { error, fail, redirect } from '@sveltejs/kit';
 import { updateEmailSchema, updateUsernameSchema } from '$lib/schemas';
 import { validateData } from '$lib/utils';
 
@@ -13,7 +13,7 @@ export const actions = {
 		const { formData, errors } = await validateData(await request.formData(), updateEmailSchema);
 
 		if (errors) {
-			return invalid(400, {
+			return fail(400, {
 				data: formData,
 				errors: errors.fieldErrors
 			});
@@ -33,7 +33,7 @@ export const actions = {
 		const { formData, errors } = await validateData(await request.formData(), updateUsernameSchema);
 
 		if (errors) {
-			return invalid(400, {
+			return fail(400, {
 				data: formData,
 				errors: errors.fieldErrors
 			});
