@@ -19,5 +19,10 @@
 		{data.project.name}
 	</h1>
 	<p class="text-2xl font-light mt-2">{data.project.tagline}</p>
+	<p class="mt-1">
+		<a class="text-primary hover:underline" target="_blank" href={data.project.url}
+			>{data.project.url}</a
+		>
+	</p>
 	<p class="mt-5">{data.project.description}</p>
 </div>
