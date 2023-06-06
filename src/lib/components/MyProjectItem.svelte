@@ -3,6 +3,8 @@
 	import { Modal } from '$lib/components';
 	import { getImageURL } from '$lib/utils';
 	import toast from 'svelte-french-toast';
+
+	import { Icon, PencilSquare, Trash } from 'svelte-hero-icons';
 	export let project;
 
 	let modalOpen;
@@ -29,7 +31,7 @@
 	$: modalOpen = false;
 </script>
 
-<div class="w-full h-28 flex items-center justify-between">
+<div class="w-full flex items-center justify-between">
 	<div class="avatar">
 		<div class="w-20 rounded">
 			<img
@@ -44,10 +46,15 @@
 		<a href="/projects/{project.id}" class="font-semibold text-lg">{project.name}</a>
 		<p>{project.tagline}</p>
 	</div>
+
 	<div class="flex items-center justify-end w-full">
-		<a href="/projects/{project.id}/edit" class="btn btn-outline">Edit Project</a>
+		<a href="/projects/{project.id}/edit" class="btn btn-outline">
+			<Icon src={PencilSquare} class="w-4 h-4" />
+		</a>
 		<Modal label={project.id} checked={modalOpen}>
-			<span slot="trigger" class="btn btn-error ml-2">Delete</span>
+			<span slot="trigger" class="btn btn-error ml-2">
+				<Icon src={Trash} class="w-4 h-4" />
+			</span>
 			<div slot="heading">
 				<h3 class="text-2xl">Delete {project.name}</h3>
 				<p class="text-base font-normal mt-2">

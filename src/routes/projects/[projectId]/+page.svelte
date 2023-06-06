@@ -3,7 +3,7 @@
 	export let data;
 </script>
 
-<div class="flex flex-col w-full mt-4 max-w-3xl mx-auto">
+<div class="flex flex-col w-full mt-4 max-w-3xl mx-auto px-4">
 	<div class="avatar">
 		<div class="w-40 rounded">
 			<img
